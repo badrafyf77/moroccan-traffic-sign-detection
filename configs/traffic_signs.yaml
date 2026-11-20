@@ -1,0 +1,51 @@
+# Ultralytics dataset config for the final 40-class model.
+# The class order matches weights/yolo11n_traffic_signs.pt.
+# Note: the notebook assigns class ids in first-seen order after a random shuffle, so re-running
+# it can produce a different order. Use this file to keep ids consistent with the released weights.
+path: final_dataset   # folder created in step 6 of notebooks/train_yolo11n.ipynb
+train: images/train
+val: images/val
+test: images/test
+
+nc: 40
+names:
+  0: go-straight-or-turn-right
+  1: yield
+  2: maximum-speed-limit-40
+  3: maximum-speed-limit-20
+  4: maximum-speed-limit-80
+  5: roadworks
+  6: parking
+  7: no-stopping
+  8: maximum-speed-limit-30
+  9: no-parking
+  10: curve-right
+  11: bicycles-only
+  12: crossroads
+  13: keep-right
+  14: height-limit
+  15: double-curve-first-right
+  16: slippery-road-surface
+  17: children
+  18: roundabout
+  19: stop
+  20: no-right-turn
+  21: no-left-turn
+  22: traffic-signals
+  23: other-danger
+  24: keep-left
+  25: maximum-speed-limit-60
+  26: end-of-speed-limit-zone
+  27: go-straight
+  28: one-way-right
+  29: no-entry
+  30: one-way-left
+  31: road-bump
+  32: no-heavy-goods-vehicles
+  33: pedestrians-only
+  34: pedestrians-crossing
+  35: no-u-turn
+  36: go-straight-or-turn-left
+  37: curve-left
+  38: no-overtaking
+  39: end-of-motorway

@@ -1,0 +1,9 @@
+# Detection scripts (scripts/)
+ultralytics>=8.3
+opencv-python>=4.8
+numpy>=1.24
+
+# Data preparation scripts (data_preparation/)
+tqdm>=4.66
+
+# The training notebook installs its own extras: gdown, albumentations, scikit-learn, matplotlib

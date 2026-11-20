@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Datasets and training outputs (too large for git)
+dataset/
+balanced/
+final_dataset/
+runs/
+*.zip
+
+# Outputs of the scripts
+predictions/
+detections.avi
+capture.png
+label_counts.txt
+
+# Videos (the demo video is attached to the GitHub release)
+*.mp4
+*.avi
+*.mov
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/

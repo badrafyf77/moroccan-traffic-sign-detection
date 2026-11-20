@@ -12,8 +12,8 @@ final_dataset/
 runs/
 *.zip
 
-# Outputs of the scripts
-predictions/
+# Outputs of the scripts (top-level only; results/predictions/ is part of the repo)
+/predictions/
 detections.avi
 capture.png
 label_counts.txt

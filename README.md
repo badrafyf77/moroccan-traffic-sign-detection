@@ -5,6 +5,7 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Ultralytics YOLO11](https://img.shields.io/badge/Ultralytics-YOLO11-0B23A9)](https://docs.ultralytics.com/models/yolo11/)
 [![OpenCV](https://img.shields.io/badge/OpenCV-real--time-5C3EE8?logo=opencv&logoColor=white)](https://opencv.org/)
+[![Dataset on Hugging Face](https://img.shields.io/badge/Dataset-Hugging%20Face-FFD21E?logo=huggingface&logoColor=black)](https://huggingface.co/datasets/afyfbadreddine77/moroccan-traffic-signs)
 [![License: MIT](https://img.shields.io/badge/code-MIT-green)](LICENSE)
 
 ![Real-time detection on a street in Casablanca](assets/demo.gif)
@@ -59,7 +60,22 @@ flowchart LR
 5. **Run in real time** ([`scripts/realtime_detection.py`](scripts/realtime_detection.py)). A background thread reads the
    video, YOLO detects the signs, and each detection is drawn with its class, confidence and estimated distance.
 
+### Dataset on Hugging Face
+
+The cleaned dataset (output of the cleaning scripts, before resizing and balancing) is public on Hugging Face:
+**[afyfbadreddine77/moroccan-traffic-signs](https://huggingface.co/datasets/afyfbadreddine77/moroccan-traffic-signs)**:
+9,351 images at original resolution, 13,440 boxes, 71 classes, split into train / validation / test (7,481 / 935 / 935).
+
+```python
+from datasets import load_dataset
+
+ds = load_dataset("afyfbadreddine77/moroccan-traffic-signs")
+names = ds["train"].features["objects"]["category"].feature.names
+```
+
 ### Final dataset
+
+After resizing, removing flagged boxes and balancing (classes with fewer than 50 boxes dropped), the training set is:
 
 | Images | Train | Validation | Test | Classes |
 |:---:|:---:|:---:|:---:|:---:|
@@ -143,7 +159,8 @@ Keys while running: **Q** quit · **S** pause · **P** save the current frame.
 
 ## Train it yourself
 
-1. Gather the source datasets in one folder and run the cleaning scripts in order
+1. Get the cleaned dataset: download it from [Hugging Face](https://huggingface.co/datasets/afyfbadreddine77/moroccan-traffic-signs),
+   or gather the source datasets yourself and run the cleaning scripts in order
    (see [`data_preparation/README.md`](data_preparation/README.md)).
 2. Open [`notebooks/train_yolo11n.ipynb`](notebooks/train_yolo11n.ipynb) and run it from top to bottom.
 
